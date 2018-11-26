@@ -1,0 +1,25 @@
+{
+  "Movies": [
+    {
+      "title": "8th Grade",
+      "desc": "",
+      "link": "",
+      "rating": 5
+    },
+    {
+      "title": "3 Strangers",
+      "genre": "Documentary",
+      "desc": "",
+      "link": "",
+      "rating": 4
+    },
+    {
+      "title": "Roma",
+      "desc": "Alfonso Cuaron's masterpiece",
+      "link": "",
+      "rating": 5,
+      "seenOn": "2018",
+      "notes": "Seen on first day, at the Landmark"
+    }
+  ]
+}
