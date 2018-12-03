@@ -1,5 +1,5 @@
 import MovieEntry from "./MovieEntry";
-import * as moviesJson from "./MoviesJSON.json";
+import moviesJson from "./data/MoviesJSON.json";
 
 // const movies: MovieEntry[] = [
 //   { title: "8th Grade", desc: "123", link: "", rating: 5 },
