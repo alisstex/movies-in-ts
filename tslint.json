@@ -2,7 +2,8 @@
     "extends": ["tslint-react"],
     "linterOptions": {
         "exclude": [
-            "src/data/*.json"
+            "src/data/*.json",
+            "src/*.tsx"
         ]
     },
     "rules": {
