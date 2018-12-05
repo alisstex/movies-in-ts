@@ -3,9 +3,10 @@ import "./styles.css";
 import MovieEntry from "./MovieEntry";
 import Square from "./Square";
 import movies from "./Movies";
+import AddMovieComponent from "./AddMovieComponent";
 
 class MoviesPage extends React.Component {
-  state = { adding: false, movies: movies, inputText: "" };
+  state = { adding: false, movies: movies };
 
   addButton = (
     <button
@@ -20,28 +21,11 @@ class MoviesPage extends React.Component {
   );
 
   addInput = (
-    <div>
-      <input
-        id="title_input"
-        onChange={evt =>
-          this.setState({ ...this.state, inputText: evt.target.value })
-        }
-      />
-      <button
-        onClick={event => {
-          let newMovies = this.state.movies;
-          newMovies.unshift({
-            title: this.state.inputText,
-            desc: "",
-            link: "",
-            rating: 0
-          });
-          this.setState({ adding: false, movies: newMovies });
-        }}
-      >
-        OK
-      </button>
-    </div>
+    <AddMovieComponent
+      onAdd={movie =>
+        this.setState({ adding: false, movies: [movie, ...this.state.movies] })
+      }
+    />
   );
 
   getAddingComponent = () =>
