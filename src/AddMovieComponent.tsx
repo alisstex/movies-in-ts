@@ -1,5 +1,6 @@
 import * as React from 'react';
 import MovieEntry from "./MovieEntry";
+import MoviesDB from "./DB";
 
 export interface IAppProps {
     onAdd: (movie: MovieEntry) => void;
@@ -32,6 +33,8 @@ export default class AddMovieComponent extends React.Component<IAppProps, IAppSt
                             link: "",
                             rating: 0
                         };
+                        const db = new MoviesDB();
+                        db.addMovie(newMovie);
                         this.props.onAdd(newMovie);
                     }}
                 >

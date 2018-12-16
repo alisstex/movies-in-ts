@@ -2,17 +2,27 @@ import * as React from "react";
 import "./styles.css";
 import MovieEntry from "./MovieEntry";
 import Square from "./Square";
-import movies from "./Movies";
+//import movies from "./Movies";
 import AddMovieComponent from "./AddMovieComponent";
+import MoviesDB from "./DB";
 
 class MoviesPage extends React.Component {
-  state = { adding: false, movies: movies };
+  state = { adding: false, movies: [] };
+
+  public componentDidMount() {
+    const db = new MoviesDB();
+    db.getMovies(movie =>
+      this.setState({
+        ...this.state,
+        movies: [movie, ...this.state.movies]
+      })
+    );
+  }
 
   addButton = (
     <button
       className="moviesAddButton"
       onClick={event => {
-        global.console.log("click add");
         this.setState({ ...this.state, adding: true });
       }}
     >
@@ -22,8 +32,12 @@ class MoviesPage extends React.Component {
 
   addInput = (
     <AddMovieComponent
-      onAdd={movie =>
-        this.setState({ adding: false, movies: [movie, ...this.state.movies] })
+      onAdd={
+        movie =>
+          this.setState({
+            adding: false,
+            movies: [movie, ...this.state.movies]
+          }) //TODO: Actually add to storage instead of just to state
       }
     />
   );

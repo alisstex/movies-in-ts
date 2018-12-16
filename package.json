@@ -5,6 +5,7 @@
   "private": true,
   "main": "src/index.tsx",
   "dependencies": {
+    "firebase": "^5.7.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts-ts": "^2.13.0",
