@@ -5,9 +5,10 @@ import Square from "./Square";
 //import movies from "./Movies";
 import AddMovieComponent from "./AddMovieComponent";
 import MoviesDB from "./DB";
+import MovieEdit from "./MovieEdit";
 
 class MoviesPage extends React.Component {
-  state = { adding: false, movies: [] };
+  state = { editing: false, adding: false, movies: [] };
 
   public componentDidMount() {
     const db = new MoviesDB();
@@ -30,6 +31,17 @@ class MoviesPage extends React.Component {
     </button>
   );
 
+  editButton = (
+    <button
+      className="moviesAddButton"
+      onClick={event => {
+        this.setState({ ...this.state, editing: !this.state.editing });
+      }}
+    >
+      Edit
+    </button>
+  );
+
   addInput = (
     <AddMovieComponent
       onAdd={
@@ -49,9 +61,10 @@ class MoviesPage extends React.Component {
     return (
       <div className="App">
         {this.getAddingComponent()}
+        {this.editButton}
         <div className="moviesgrid">
           {this.state.movies.map((m: MovieEntry) => (
-            <Square key={m.title} movie={m} />
+            this.state.editing ? <MovieEdit key={m.title} movie={m} /> : <Square key={m.title} movie={m} />
           ))}
         </div>
       </div>

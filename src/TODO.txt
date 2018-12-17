@@ -1,8 +1,11 @@
 Big:
-- Use some database (firebase)
 - REDUX
 - GraphQL
 - Relay
 - RelayModern
 
 Small:
+- Edit description and link
+- Connect somehow with wikipedia or imdb
+- Paging (or infinite scroll)
+

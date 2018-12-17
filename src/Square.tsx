@@ -19,11 +19,11 @@ class Rating extends React.Component<{ movieId: string, rating: number }, { rati
         starDimension="20px"
         starSpacing="2px"
         changeRating={(newRating, name) => {
-          global.console.log(newRating);
           this.setState({ rating: newRating });
           const db = new MoviesDB();
           db.setRating(this.props.movieId, newRating);
         }}
+        style={{cursor: 'pointer'}}
       />
     );
   }
