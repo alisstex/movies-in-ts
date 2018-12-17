@@ -37,7 +37,7 @@ class MoviesPage extends React.Component {
           this.setState({
             adding: false,
             movies: [movie, ...this.state.movies]
-          }) //TODO: Actually add to storage instead of just to state
+          })
       }
     />
   );

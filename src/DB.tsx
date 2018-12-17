@@ -27,8 +27,11 @@ export default class MoviesDB {
   }
 
   public addMovie(movie: MovieEntry) {
-    // TODO: generate actual id
     this.database.ref("movies/" + movie.title).set(movie);
+  }
+
+  public setRating(movieId: string, rating: number) {
+    this.database.ref("movies/" + movieId).update({ rating: rating});
   }
 
   public getMovies(handleMovie: (movie: MovieEntry) => void) {
@@ -38,4 +41,5 @@ export default class MoviesDB {
       });
     });
   }
+  
 }
